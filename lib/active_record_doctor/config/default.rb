@@ -88,4 +88,44 @@ ActiveRecordDoctor.configure do
     enabled: true,
     ignore_tables: [],
     ignore_columns: []
+
+  detector :missing_inclusion_check_constraint,
+    enabled: true,
+    ignore_models: [],
+    ignore_attributes: []
+
+  detector :missing_numericality_check_constraint,
+    enabled: true,
+    ignore_models: [],
+    ignore_attributes: []
+
+  detector :missing_default_in_pg,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
+
+  detector :missing_polymorphic_index,
+    enabled: true,
+    ignore_models: [],
+    ignore_associations: []
+
+  detector :missing_sti_type_constraint,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
+
+  detector :boolean_without_default,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
+
+  detector :integer_should_be_smallint,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
+
+  detector :datetime_without_timezone,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
 end
