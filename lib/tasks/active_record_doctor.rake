@@ -13,6 +13,11 @@ require "active_record_doctor/detectors/incorrect_boolean_presence_validation"
 require "active_record_doctor/detectors/incorrect_dependent_option"
 require "active_record_doctor/detectors/short_primary_key_type"
 require "active_record_doctor/detectors/mismatched_foreign_key_type"
+require "active_record_doctor/detectors/float_column"
+require "active_record_doctor/detectors/serial_primary_key"
+require "active_record_doctor/detectors/json_instead_of_jsonb"
+require "active_record_doctor/detectors/ip_address_as_string"
+require "active_record_doctor/detectors/unbounded_string_column"
 require "active_record_doctor/rake/task"
 
 ActiveRecordDoctor::Rake::Task.new do |task|
