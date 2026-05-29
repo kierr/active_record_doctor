@@ -128,4 +128,28 @@ ActiveRecordDoctor.configure do
     enabled: true,
     ignore_tables: [],
     ignore_columns: []
+
+  detector :float_column,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
+
+  detector :serial_primary_key,
+    enabled: true,
+    ignore_tables: []
+
+  detector :json_instead_of_jsonb,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
+
+  detector :ip_address_as_string,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
+
+  detector :unbounded_string_column,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
 end
