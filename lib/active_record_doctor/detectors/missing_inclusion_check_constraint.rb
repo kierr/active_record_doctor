@@ -90,8 +90,16 @@ module ActiveRecordDoctor
             /#{quoted}\s*=\s*ANY\s*\(\s*ARRAY\s*\[\s*#{int_values.join('\s*,\s*')}\s*\]\s*\)/i,
             /#{escaped}\s*=\s*ANY\s*\(\s*ARRAY\s*\[\s*#{int_values.join('\s*,\s*')}\s*\]\s*\)/i
           ]
+        elsif [true, false].include?(values.first)
+          bool_values = values.map { |v| v ? "TRUE" : "FALSE" }
+          [
+            /#{quoted}\s+IN\s*\(\s*#{bool_values.join('\s*,\s*')}\s*\)/i,
+            /#{escaped}\s+IN\s*\(\s*#{bool_values.join('\s*,\s*')}\s*\)/i,
+            /#{quoted}\s*=\s*ANY\s*\(\s*ARRAY\s*\[\s*#{bool_values.join('\s*,\s*')}\s*\]\s*\)/i,
+            /#{escaped}\s*=\s*ANY\s*\(\s*ARRAY\s*\[\s*#{bool_values.join('\s*,\s*')}\s*\]\s*\)/i
+          ]
         else
-          string_values = values.sort.map { |v| connection.quote(v) }
+          string_values = values.sort_by(&:to_s).map { |v| connection.quote(v) }
           bare_values = string_values.map { |v| Regexp.escape(v) }
           cast_values = string_values.map { |v| "#{Regexp.escape(v)}::[\\w ]+" }
           [

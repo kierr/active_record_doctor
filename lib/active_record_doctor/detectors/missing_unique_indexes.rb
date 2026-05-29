@@ -127,7 +127,14 @@ module ActiveRecordDoctor
             join_table = association.join_table
             next if @reported_join_tables.include?(join_table) || config(:ignore_join_tables).include?(join_table)
 
-            columns = [association.foreign_key, association.association_foreign_key]
+            # inverse_of can be nil for malformed HABTM associations in Rails 8.1,
+            # causing foreign_key to raise NoMethodError internally.
+            fk = begin
+              association.foreign_key
+            rescue NoMethodError
+              next
+            end
+            columns = [fk, association.association_foreign_key]
             next if unique_index?(join_table, columns)
 
             @reported_join_tables << join_table
