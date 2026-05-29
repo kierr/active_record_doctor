@@ -83,4 +83,9 @@ ActiveRecordDoctor.configure do
     enabled: true,
     ignore_tables: [],
     ignore_columns: []
+
+  detector :missing_enum_check_constraint,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
 end
