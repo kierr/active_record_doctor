@@ -13,7 +13,7 @@ module ActiveRecordDoctor
 
       private
 
-      def message(table:, column: nil, **kwargs)
+      def message(table:, column:, default:, **kwargs)
         "#{table}.#{column} has a default value (#{default}) but is nullable — add NOT NULL or remove the default"
       end
 

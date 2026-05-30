@@ -13,7 +13,7 @@ module ActiveRecordDoctor
 
       private
 
-      def message(**kwargs)
+      def message(table:, column:, **kwargs)
         "#{table}.#{column} stores URLs/URIs without a format validator — add format: { with: URI::DEFAULT_PARSER.make_regexp }"
       end
 

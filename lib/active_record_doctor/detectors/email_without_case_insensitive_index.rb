@@ -13,7 +13,7 @@ module ActiveRecordDoctor
 
       private
 
-      def message(**kwargs)
+      def message(table:, column:, index:, **kwargs)
         "#{table}.#{column} has a case-sensitive unique index (#{index}) — emails are case-insensitive, use citext or a LOWER() expression index"
       end
 

@@ -13,7 +13,7 @@ module ActiveRecordDoctor
 
       private
 
-      def message(**kwargs)
+      def message(table:, column:, **kwargs)
         "#{table}.#{column} has no length limit in the schema and no length validator — add a limit or a length validator"
       end
 

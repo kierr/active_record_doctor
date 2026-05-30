@@ -13,7 +13,7 @@ module ActiveRecordDoctor
 
       private
 
-      def message(table:, column: nil, **kwargs)
+      def message(table:, index_count:, max:, **kwargs)
         "#{table} has #{index_count} indexes (max: #{max}) — every index costs ~1.5TB at 100B rows and slows writes"
       end
 

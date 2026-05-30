@@ -12,7 +12,7 @@ module ActiveRecordDoctor
 
       private
 
-      def message(**kwargs)
+      def message(table:, pk_type:, dominant_type:, **kwargs)
         "#{table} uses #{pk_type} for its primary key but most tables use #{dominant_type} — consider migrating for consistency"
       end
 
