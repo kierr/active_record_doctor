@@ -152,4 +152,87 @@ ActiveRecordDoctor.configure do
     enabled: true,
     ignore_tables: [],
     ignore_columns: []
+
+  detector :nullable_column_with_default,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
+
+  detector :nullable_boolean,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
+
+  detector :nullable_counter_cache,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
+
+  detector :uuid_stored_as_string,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
+
+  detector :unbounded_hash_column,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
+
+  detector :jsonb_without_shape_constraint,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
+
+  detector :jsonb_without_gin_index,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
+
+  detector :excessive_table_indexes,
+    enabled: true,
+    ignore_tables: [],
+    max_indexes: 8
+
+  detector :string_column_should_be_enum,
+    enabled: true,
+    ignore_models: [],
+    ignore_attributes: []
+
+  detector :unbounded_varchar_column,
+    enabled: true,
+    ignore_models: [],
+    ignore_attributes: []
+
+  detector :foreign_key_on_delete_mismatch,
+    enabled: true,
+    ignore_models: [],
+    ignore_associations: []
+
+  detector :url_column_without_validation,
+    enabled: true,
+    ignore_models: [],
+    ignore_attributes: []
+
+  detector :amount_without_positive_check,
+    enabled: true,
+    ignore_tables: [],
+    ignore_columns: []
+
+  detector :email_without_case_insensitive_index,
+    enabled: true,
+    ignore_models: [],
+    ignore_attributes: []
+
+  detector :queryable_jsonb_column,
+    enabled: true,
+    ignore_models: [],
+    ignore_attributes: []
+
+  detector :inconsistent_primary_key_strategy,
+    enabled: true,
+    ignore_tables: []
+
+  detector :inconsistent_cross_table_types,
+    enabled: true,
+    ignore_columns: []
 end
