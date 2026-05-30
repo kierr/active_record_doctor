@@ -13,7 +13,7 @@ module ActiveRecordDoctor
 
       private
 
-      def message(**kwargs)
+      def message(model:, column:, accessors:, **kwargs)
         "#{model} uses store_accessor on #{column} with #{accessors.length} known keys — consider extracting to discrete columns for type safety and query performance"
       end
 

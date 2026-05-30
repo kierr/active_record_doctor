@@ -12,8 +12,8 @@ module ActiveRecordDoctor
 
       private
 
-      def message(**kwargs)
-        column #{column} has inconsistent types across tables: #{types.join(' vs ')}
+      def message(column:, types:, **kwargs)
+        "column #{column} has inconsistent types across tables: #{types.join(' vs ')}"
       end
 
       def detect

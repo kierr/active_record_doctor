@@ -13,7 +13,7 @@ module ActiveRecordDoctor
 
       private
 
-      def message(**kwargs)
+      def message(model:, association:, dependent:, on_delete:, table:, **kwargs)
         "#{model}.#{association} has dependent: :#{dependent} but the FK on #{table} uses ON DELETE #{on_delete} — these should match"
       end
 

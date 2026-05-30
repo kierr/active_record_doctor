@@ -13,7 +13,7 @@ module ActiveRecordDoctor
 
       private
 
-      def message(**kwargs)
+      def message(table:, column:, **kwargs)
         "#{table}.#{column} stores monetary/amount data without a CHECK >= 0 constraint — negative values may be invalid"
       end
 

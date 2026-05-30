@@ -13,7 +13,7 @@ module ActiveRecordDoctor
 
       private
 
-      def message(**kwargs)
+      def message(table:, column:, values:, **kwargs)
         "#{table}.#{column} has an inclusion validator with #{values} string values — consider using a Postgres enum for 4-byte storage and DB-level enforcement"
       end
 
